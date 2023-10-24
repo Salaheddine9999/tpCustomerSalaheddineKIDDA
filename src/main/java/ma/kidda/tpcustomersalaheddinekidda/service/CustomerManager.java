@@ -35,6 +35,7 @@ public class CustomerManager {
       return null;  
     }   
     
+    @Transactional
      public void persist(Customer customer) {
        em.persist(customer);
     }

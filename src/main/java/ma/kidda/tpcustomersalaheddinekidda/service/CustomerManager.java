@@ -28,11 +28,15 @@ public class CustomerManager {
     public List<Customer> getAllCustomers() {  
         Query query = em.createNamedQuery("Customer.findAll");
        return query.getResultList(); 
-    }  
+    }
+    
+    public Customer findById(int idCustomer) {  
+  return em.find(Customer.class, idCustomer);  
+}
 
     @Transactional
     public Customer update(Customer customer) {
-      return null;  
+     return em.merge(customer);
     }   
     
     @Transactional
